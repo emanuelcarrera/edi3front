@@ -18,48 +18,6 @@ function load() {
     
 }
 
-function AltaUsuario(){
-
-    var xmlhttp = new XMLHttpRequest();
-   
-    xmlhttp.open("POST", servidor + '/Usuarios/Alta', true);
-    xmlhttp.onreadystatechange = function () {
-        //Veo si llego la respuesta del servidor
-        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-            //Reviso si la respuesta es correcta
-            if (xmlhttp.status == 200) {
-                //alert(xmlhttp.responseText);
-
-                alert("ok");
-            }
-            else {
-                alert("ocurrio un error");
-            }
-        }
-    }
-     
-    if($("txtNUsuario").value === null || $("txtNUsuario").value === "")
-    {
-
-        alert("El campo nombre usuario esta vacio")
-
-    }
-    else{
-
-    var obje = new FormData();
-    obje.append("NUsuario", $("txtNUsuario").value );
-    obje.append("pass", $("txtPass").value );
-    obje.append("Nombre", $("txtNombre").value );
-    obje.append("Apellido", $("txtApellido").value );
-    obje.append("Edad", $("txtEdad").value );
-    obje.append("Descripcion", $("txtUDescripcion").value );
-    //envio el mensaje    
-    xmlhttp.send(obje);
-    }
-
-
-
-}
 
 function Login(){
 
@@ -82,9 +40,20 @@ function Login(){
     }
 
     var obje = new FormData();
+    obje.append("NUsuario", $("txtUsuario").value );
     obje.append("pass", $("txtPass").value );
     //envio el mensaje    
     xmlhttp.send(obje);
+
+    var json = JSON.parse(xmlhttp.responseText);
+    if(!(xmlhttp.Text == "0"))
+    {
+    window.location.href = "../pantallas/Home.html";
+    }else
+    {
+       alert("usuario o contraseña incorrectos")
+    }
+
 
 
 

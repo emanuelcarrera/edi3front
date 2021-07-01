@@ -29,7 +29,7 @@ function AltaUsuario(){
             if (xmlhttp.status == 200) {
                 //alert(xmlhttp.responseText);
 
-                alert("ok");
+                
             }
             else {
                 alert("ocurrio un error");
@@ -40,9 +40,28 @@ function AltaUsuario(){
     if($("txtNUsuario").value === null || $("txtNUsuario").value === "")
     {
 
-        alert("El campo nombre usuario esta vacio")
-
+        alert("Usuario Obligatorio");
     }
+    if ($("txtPass").value === null || $("txtPass").value === "") {
+
+        
+        alert("contraseña Obligatoria");
+    } 
+    if ($("txtNombre").value === null || $("txtNombre").value === "") {
+
+        alert("Nombre Obligatorio");
+        
+    } 
+    if ($("txtApellido").value === null || $("txtApellido").value === "") {
+        
+        alert("Apellido Obligatorio");
+    } 
+    if ($("txtEdad").value === null || $("txtEdad").value === "") {
+        alert("edad Obligatorio");
+    } 
+    if ($("txtUDescripcion").value === null || $("txtUDescripcion").value === "") {
+        alert("Descripcion Obligatorio");
+    } 
     else{
 
     var obje = new FormData();
@@ -54,6 +73,17 @@ function AltaUsuario(){
     obje.append("Descripcion", $("txtUDescripcion").value );
     //envio el mensaje    
     xmlhttp.send(obje);
+    alert("Usuario creado");
+
+    $("txtNUsuario").value = "";
+    $("txtPass").value = "";
+    $("txtNombre").value = "";
+    $("txtApellido").value = "";
+    $("txtEdad").value = "";
+    $("txtUDescripcion").value  ="";
+
+
+
     }
 
 

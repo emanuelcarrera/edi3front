@@ -17,16 +17,16 @@ var servidor = "https://edi3carreraback.herokuapp.com";
                 json.map(function(Usuarios){
                      template +=`
                      
-                     <h2>${Usuarios.nombreUsuario}</h2>
+                     <h3>${Usuarios.nombreUsuario}</h3>
                      <br>
-                     <strong>${Usuarios.nombre}</strong>
-                     <strong>${Usuarios.apellido}</strong>
+                     <p>${Usuarios.nombre}</p>
+                     <p>${Usuarios.apellido}</p>
                      <p>${Usuarios.Descripcion}</p>
 
                      `;
 
                 });
-                xmlhttp.send();
+              
                 console.log(template);
                 document.getElementById('lista').innerHTML=template;
 
@@ -37,6 +37,8 @@ var servidor = "https://edi3carreraback.herokuapp.com";
             }
         
     }
+
+    xmlhttp.send();
 
 
 
@@ -66,8 +68,9 @@ function ListarUsuarios(){
         //Veo si llego la respuesta del servidor
         if (xmlhttp.readyState == XMLHttpRequest.DONE) {
             //Reviso si la respuesta es correcta
+            
             if (xmlhttp.status == 200) {
-                xmlhttp.send();
+                
                 var json = JSON.parse(xmlhttp.responseText);
                 var template = ``;
                 json.map(function(Usuarios){
@@ -94,6 +97,6 @@ function ListarUsuarios(){
         }
     }
 
-
+    xmlhttp.send();
 
 }
