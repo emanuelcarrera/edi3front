@@ -16,7 +16,7 @@ var servidor = "https://edi3carreraback.herokuapp.com";
                 var template = ``;
                 json.map(function(Usuarios){
                      template +=`
-                     
+                     <p>_______________________________________  </p>
                      <h3>${Usuarios.nombreUsuario}</h3>
                      <br>
                      <p>${Usuarios.nombre}</p>
@@ -75,12 +75,13 @@ function ListarUsuarios(){
                 var template = ``;
                 json.map(function(Usuarios){
                      template +=`
-                     
+                     <p>_______________________________________  </p>
                      <h2>${Usuarios.nombreUsuario}</h2>
                      <br>
                      <strong>${Usuarios.nombre}</strong>
                      <strong>${Usuarios.apellido}</strong>
                      <p>${Usuarios.Descripcion}</p>
+                    
 
                      `;
 
